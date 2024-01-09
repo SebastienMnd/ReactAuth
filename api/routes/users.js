@@ -1,5 +1,6 @@
 const express = require("express");
 const bcrypt = require("bcrypt");
+const { v4: uuid } = require("uuid")
 const { readUsersFile, writeUsersFile } = require("../functions/users");
 
 const router = express.Router();
@@ -15,7 +16,7 @@ router.post("/login", async (req, res) => {
     const user = users.find((u) => u.mail === mail);
 
     if (user && (await bcrypt.compare(password, user.password))) {
-      res.json({ message: "Authentification réussie" });
+      res.json({ message: "Authentification réussie", user });
     } else {
       res
         .status(401)
@@ -46,7 +47,7 @@ router.post("/register", async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     // Ajoute le nouvel utilisateur
-    users.push({ mail, password: hashedPassword });
+    users.push({ id : uuid(), mail, password: hashedPassword, createdAt : new Date() });
     await writeUsersFile(users);
 
     res.json({ message: "Utilisateur créé avec succès" });

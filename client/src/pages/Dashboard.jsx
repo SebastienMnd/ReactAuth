@@ -6,7 +6,7 @@ import { Header } from "../components/Header";
 import { Heading, Box, Text, Flex } from "@chakra-ui/react";
 
 export const Dashboard = () => {
-  const { authenticated } = useAuth();
+  const { authenticated, user } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,18 +18,27 @@ export const Dashboard = () => {
   return (
     <>
       <Header />
-      <Flex
-        align="center"
-        justify="center"
-        minHeight="100vh"
-        bg="gray.100"
-        direction={"column"}
-      >
-        <Box w="100%" maxW="100%" h="100%" minH="100vh" bg="red.500" p={8}>
-          <Heading>Dashboard</Heading>
-          <Text> Bienvenue sur la page de suivi </Text>
-        </Box>
-      </Flex>
+
+      {user && (
+        <Flex
+          align="center"
+          justify="center"
+          minHeight="100vh"
+          bg="gray.100"
+          direction={"column"}
+        >
+          <Box w="100%" maxW="100%" h="100%" minH="100vh" bg="red.500" p={8}>
+            <Heading>Dashboard</Heading>
+            <Text>
+              Bienvenue sur la page de suivi de
+              <Text as={"b"}> {user.mail} </Text>
+            </Text>
+            <Text>
+              Date de création : <Text as={"b"}> {user.createdAt} </Text>
+            </Text>
+          </Box>
+        </Flex>
+      )}
     </>
   );
 };

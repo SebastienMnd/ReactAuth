@@ -1,22 +1,8 @@
 [
   {
-    "mail": "admin@admin.fr",
-    "password": "admin"
-  },
-  {
-    "mail": "seb",
-    "password": "$2b$10$0LFWX43uiQ3ApL6tkU.TDOx8h.Aqi/J1aowIJH1W7e1W7t33EV38K"
-  },
-  {
-    "mail": "Sebastien",
-    "password": "$2b$10$OU7LsV5VCJw4KOwLI46mruc2R7sbTFkrRHTT0bQbgbGK7vNv.1nw."
-  },
-  {
-    "mail": "admin",
-    "password": "$2b$10$dT9vgaCeByidXy8zwfapnekQRvSSCksVzZGaGV.cZCmFARs9fuSAq"
-  },
-  {
+    "id": "58557481-36a1-435d-82be-18d3614b857b",
     "mail": "root",
-    "password": "$2b$10$r72X397yNdXK7B0RPZBvbeEUAQsi73F8MIVRUSDXI9MBGG8XeHqFG"
+    "password": "$2b$10$A6Y9vmkG4pkNSin8xCDo0uN5puZSf4Lzvefqyt/rHlxe5T5k0Gboq",
+    "createdAt": "2024-01-08T23:58:56.521Z"
   }
 ]
